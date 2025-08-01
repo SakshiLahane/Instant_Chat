@@ -1,0 +1,10 @@
+<!-- res/drawable/ic_flash_off_white_24dp.xml -->
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+    <path
+        android:fillColor="#FFFFFFFF"
+        android:pathData="M3.27,3L2,4.27l5,5V13h3v9l4.29-5.63L17.73,20l1.27-1.27L3.27,3zM7,5.27L14.73,13H13v2.18l-2-2.62V13H9v-2.73L7,8.27V5.27z"/>
+</vector>

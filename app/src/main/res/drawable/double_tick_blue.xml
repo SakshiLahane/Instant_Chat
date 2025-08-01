@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="24dp"
+    android:height="24dp"
+    android:viewportWidth="24"
+    android:viewportHeight="24">
+
+    <!-- First tick -->
+    <path
+        android:fillColor="#0A84FF"
+        android:pathData="M1.41,13.41L0,12l6,6 6-6 -1.41,-1.41L6,14.17z" />
+
+    <!-- Second tick -->
+    <path
+        android:fillColor="#0A84FF"
+        android:pathData="M17,6.41L15.59,5 10,10.59 8.41,9l-1.41,1.41L10,13.41z" />
+</vector>

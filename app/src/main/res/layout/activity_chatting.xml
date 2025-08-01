@@ -1,0 +1,157 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/chatLayout"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FAFAFA">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="12dp"
+        android:background="@color/white">
+
+        <ImageButton
+            android:id="@+id/backButton"
+            android:layout_width="36dp"
+            android:layout_height="36dp"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/back"
+            android:contentDescription="Back" />
+
+        <TextView
+            android:id="@+id/chatUserName"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:text="Chat with User"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:textColor="@color/black" />
+
+        <TextView
+            android:id="@+id/chatStatus"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/chatUserName"
+            android:layout_centerHorizontal="true"
+            android:text="Offline"
+            android:textSize="14sp"
+            android:textStyle="bold"
+            android:textColor="@color/gray"
+            android:layout_marginTop="4dp" />
+
+        <ImageButton
+            android:id="@+id/videocall"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/videocall"
+            android:contentDescription="Video Call"
+            app:tint="@color/black" />
+
+    </RelativeLayout>
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/chatRecyclerView"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:padding="8dp"
+        android:clipToPadding="false"
+        android:scrollbars="vertical" />
+
+    <RelativeLayout
+        android:id="@+id/messageInputContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="8dp"
+        android:background="#F5F5F5">
+
+        <ImageButton
+            android:id="@+id/emojiBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentStart="true"
+            android:layout_centerVertical="true"
+            android:background="?attr/selectableItemBackgroundBorderless"
+            android:src="@drawable/ic_emoji"
+            android:contentDescription="Emoji"
+            android:padding="4dp"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/sendBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:background="@drawable/bg_send_button"
+            android:src="@drawable/ic_send"
+            android:contentDescription="Send"
+            android:scaleType="centerInside"
+            app:tint="@color/white" />
+
+        <ImageButton
+            android:id="@+id/attachBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/sendBtn"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_attach"
+            android:contentDescription="Attach"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/cameraBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/attachBtn"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_camera"
+            android:alpha="0"
+            android:visibility="gone"
+            android:contentDescription="Camera"
+            app:tint="@color/black" />
+
+        <ImageButton
+            android:id="@+id/galleryBtn"
+            android:layout_width="48dp"
+            android:layout_height="48dp"
+            android:layout_toStartOf="@id/cameraBtn"
+            android:layout_centerVertical="true"
+            android:background="@android:color/transparent"
+            android:src="@drawable/ic_gallery"
+            android:alpha="0"
+            android:visibility="gone"
+            android:contentDescription="Gallery"
+            app:tint="@color/black" />
+
+        <EditText
+            android:id="@+id/messageBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toEndOf="@id/emojiBtn"
+            android:layout_toStartOf="@id/attachBtn" android:layout_centerVertical="true"
+            android:layout_marginStart="8dp"
+            android:layout_marginEnd="8dp"
+            android:hint="Type a message"
+            android:background="@drawable/bg_message_input"
+            android:paddingHorizontal="16dp"
+            android:paddingVertical="10dp"
+            android:textColor="@color/black"
+            android:textSize="16sp"
+            android:maxLines="20"
+            android:minHeight="48dp"
+            android:gravity="center_vertical|start"
+            android:inputType="textMultiLine|textCapSentences" />
+
+    </RelativeLayout>
+
+</LinearLayout>
