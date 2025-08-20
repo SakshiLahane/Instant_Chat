@@ -7,7 +7,7 @@ import java.util.Locale;
 
 public class TimeUtilsLastSeen {
 
-    public static String formatLastSeen(long timestamp) {
+    public static String formatTimestamp(long timestamp) {
         Calendar now = Calendar.getInstance();
         Calendar lastSeenTime = Calendar.getInstance();
         lastSeenTime.setTimeInMillis(timestamp);
@@ -20,4 +20,6 @@ public class TimeUtilsLastSeen {
             return DateFormat.format("dd MMM, hh:mm a", lastSeenTime).toString();
         }
     }
+
+
 }

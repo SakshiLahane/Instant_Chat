@@ -4,40 +4,54 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class MessageModel {
-    public String messageId;
-    public String senderId;
-    public String receiverId;
-    public String message; // Used for text or caption for media
-    public Long timestamp; // Using Long for Firebase compatibility
-    public boolean seen;
-    public boolean isDelivered;
-    public boolean deleted; // Flag for "deleted for everyone"
-    public Map<String, Boolean> deletedFor; // Map to track who deleted the message for themselves
-    public String type; // e.g., "text", "image", "video", "deleted_sender"
-    public String mediaUrl; // URL for images, videos, etc.
-    public String fileName; // Optional, for documents or specific media names (if needed)
 
+    // Make all fields private for proper encapsulation
+    private String messageId;
+    private String senderId;
+    private String receiverId;
+    private String message;
+    private Long timestamp;
+    private boolean seen;
+    private boolean delivered; // Renamed for consistency with other booleans
+    private boolean deleted;
+    private Map<String, Boolean> deletedFor;
+    private String type;
+    private String mediaUrl;
+    private String fileName;
 
+    // Public no-argument constructor required for Firebase
     public MessageModel() {
-        // Initialize collections to avoid NullPointerExceptions later if data isn't present in Firebase
-        this.deletedFor = new HashMap<>(); // Ensures it's never null when retrieving from Firebase
+        this.deletedFor = new HashMap<>();
     }
 
+    // Constructor for creating new messages with essential fields
+    public MessageModel(String senderId, String receiverId, String message, Long timestamp) {
+        this.senderId = senderId;
+        this.receiverId = receiverId;
+        this.message = message;
+        this.timestamp = timestamp;
+        this.seen = false;
+        this.delivered = false; // Initialized to false
+        this.deleted = false;
+        this.deletedFor = new HashMap<>();
+        this.type = "text";
+    }
 
-    public MessageModel(String senderId, String receiverId, String message, Long timestamp, boolean seen, boolean isDelivered) {
+    // Full constructor for more complex initializations (e.g., media messages)
+    public MessageModel(String senderId, String receiverId, String message, Long timestamp, boolean seen, boolean delivered, boolean deleted, Map<String, Boolean> deletedFor, String type, String mediaUrl, String fileName) {
         this.senderId = senderId;
         this.receiverId = receiverId;
         this.message = message;
         this.timestamp = timestamp;
         this.seen = seen;
-        this.isDelivered = isDelivered;
-        this.deleted = false; // Default for new messages is not deleted for everyone
-        this.deletedFor = new HashMap<>(); // Initialize for new messages
-        this.type = "text"; // Default type for this constructor
+        this.delivered = delivered;
+        this.deleted = deleted;
+        this.deletedFor = deletedFor != null ? deletedFor : new HashMap<>();
+        this.type = type;
+        this.mediaUrl = mediaUrl;
+        this.fileName = fileName;
     }
 
-    public MessageModel(String senderUid, String receiverUid, String messageText, long l) {
-    }
 
     // --- Getters ---
     public String getMessageId() {
@@ -56,7 +70,7 @@ public class MessageModel {
         return message;
     }
 
-    public Long getTimestamp() { // Use Long here as it's defined as Long
+    public Long getTimestamp() {
         return timestamp;
     }
 
@@ -64,8 +78,12 @@ public class MessageModel {
         return seen;
     }
 
-    public boolean isDelivered() {
-        return isDelivered;
+    public boolean isDelivered() { // Keeping this getter for backward compatibility, but 'delivered' is the field name
+        return delivered;
+    }
+
+    public boolean getDelivered() { // Added a getter with "get" prefix for Firebase
+        return delivered;
     }
 
     public boolean isDeleted() {
@@ -93,19 +111,19 @@ public class MessageModel {
         this.messageId = messageId;
     }
 
-    public void setSenderId(String senderId) { // Added missing setter
+    public void setSenderId(String senderId) {
         this.senderId = senderId;
     }
 
-    public void setReceiverId(String receiverId) { // Added missing setter
+    public void setReceiverId(String receiverId) {
         this.receiverId = receiverId;
     }
 
-    public void setMessage(String message) { // Added missing setter
+    public void setMessage(String message) {
         this.message = message;
     }
 
-    public void setTimestamp(Long timestamp) { // Use Long here
+    public void setTimestamp(Long timestamp) {
         this.timestamp = timestamp;
     }
 
@@ -113,8 +131,8 @@ public class MessageModel {
         this.seen = seen;
     }
 
-    public void setDelivered(boolean delivered) {
-        isDelivered = delivered;
+    public void setDelivered(boolean delivered) { // Updated to use the 'delivered' field name
+        this.delivered = delivered;
     }
 
     public void setDeleted(boolean deleted) {
