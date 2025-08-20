@@ -1,0 +1,49 @@
+{
+  "project_info": {
+    "project_number": "47425818105",
+    "firebase_url": "https://instantchat-518cb-default-rtdb.firebaseio.com",
+    "project_id": "instantchat-518cb",
+    "storage_bucket": "instantchat-518cb.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47425818105:android:0ab4b1ec95c39b30cfc128",
+        "android_client_info": {
+          "package_name": "com.example.instant_chat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTIQ0C786icIomeDq8pIVK0v2S883Rm1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:47425818105:android:9b6e3ed6b482e7cccfc128",
+        "android_client_info": {
+          "package_name": "com.example.instantchat"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCTIQ0C786icIomeDq8pIVK0v2S883Rm1o"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
